@@ -26,6 +26,7 @@ async function readMessage() {
   let list = await message.find().toArray();
   console.log(list);
   await client.close();
+  //return list;
 }
 
 async function main() {
@@ -36,6 +37,8 @@ async function main() {
     from: "Vishal",
   };
   //await insertMesaage(jsonDocument);
-  readMessage();
+  //   let list = await readMessage();
+  //   console.log(list);
+  await readMessage();
 }
 main();
