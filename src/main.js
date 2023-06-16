@@ -1,15 +1,11 @@
 import express from "express";
 const app = express();
 
-function main(req, res) {
-  res.send("Hello World");
+function App(req, res) {
+  res.send("Vishal");
 }
-function happy(req, res) {
-  res.send("I am Happy");
-}
-
-//http://localhost:4000/main
-app.get("/main", main);
-app.get("/happy", happy);
-//http://localhost:4000/main
+app.get("/App",App);
+app.get("/first", (req, res) => {
+  res.send("World");
+});
 app.listen(4000);
