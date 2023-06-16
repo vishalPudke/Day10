@@ -1,20 +1,14 @@
-//Connect to DATABASE :: MongoDB
-
-import { insertMessage, readMessage } from "./mydb.js";
+import { MongoClient } from "mongodb";
 
 async function main() {
+  const uri = "mongodb://127.0.0.1:27017";
+  const client = new MongoClient(uri);
 
-    //INSERT 
-  let jsonDocument = {
-    message: "Thank YOU GOD ",
-    SentBy: "Vishal",
-    to: "GOD",
-    from: "Vishal",
-  };
-  await insertMessage(jsonDocument);
-  //READ.....
-  let list = await readMessage();
-  console.log(list);
-  //await readMessage();
+  let db = client.db("vishal");
+  let message = db.collection("message");
+  let jsonDocument = { message: "Thank You God" };
+  await message.insertOne(jsonDocument);
+  await client.close();
+  console.log("Record inserted Successfully");
 }
 main();
