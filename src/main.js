@@ -2,7 +2,7 @@
 import { MongoClient } from "mongodb";
 
 async function main() {
-  const uri = "mongodb://localhost:27017";
+  const uri = "mongodb://127.0.0.1:27017";
   const client = new MongoClient(uri);
   //Selecting DATABASE
   const db = client.db("vishal");
@@ -16,4 +16,3 @@ async function main() {
   console.log("Record Added");
 }
 main();
-
