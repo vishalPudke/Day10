@@ -9,8 +9,6 @@ async function insertMessage(jsonDocument) {
 
   const message = db.collection("message");
 
-  //
-
   await message.insertOne(jsonDocument);
 
   await client.close();
