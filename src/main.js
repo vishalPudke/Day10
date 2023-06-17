@@ -8,7 +8,9 @@ async function main(req, res) {
   const db = client.db("vishal");
   const message = db.collection("message");
 
-  let inputDocument = { message: "Hello thank you GOD" };
+  //reading data and saved the data to the database
+  let messagecoll = req.query.message;
+  let inputDocument = { message: messagecoll };
   await message.insertOne(inputDocument);
   await client.close();
   res.send("Record Added");
