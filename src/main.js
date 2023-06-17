@@ -9,8 +9,8 @@ async function main(req, res) {
   const message = db.collection("message");
 
   //reading data and saved the data to the database
-  let messagecoll = req.query.message;
-  let inputDocument = { message: messagecoll };
+  let messagecoll = req.query.message || "DEFAULT";
+  let inputDocument = { message: messagecoll, ts:new Date() };
   await message.insertOne(inputDocument);
   await client.close();
   res.send("Record Added");
